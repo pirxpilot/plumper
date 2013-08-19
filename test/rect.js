@@ -6,15 +6,22 @@ var rect = require('../lib/rect');
 describe('rect', function() {
 
   it('box should return bounding box', function() {
-    var b = rect([0, 0], [3, 5]).box();
+    var b;
+
+    b = rect([-1, -5]).box();
 
     b.should.have.length(2);
-    b.should.eql([[0, 0], [3, 5]]);
+    b.should.eql([[-1, -5], [-1, -5]]);
+
+    b = rect([0, 0], [3, 5]).box();
+
+    b.should.have.length(2);
+    b.should.eql([[0, 0], [2, 4]]);
 
     b = rect([-1, -5], [3, 2]).box();
 
     b.should.have.length(2);
-    b.should.eql([[-1, -5], [2, -3]]);
+    b.should.eql([[-1, -5], [1, -4]]);
   });
 
 
@@ -22,15 +29,15 @@ describe('rect', function() {
     var b = rect([0, 0], [3, 5]).flip().box();
 
     b.should.have.length(2);
-    b.should.eql([[0, 0], [5, 3]]);
+    b.should.eql([[0, 0], [4, 2]]);
 
     b = rect([-1, -5], [3, 2]).flip().box();
 
     b.should.have.length(2);
-    b.should.eql([[-5, -1], [-3, 2]]);
+    b.should.eql([[-5, -1], [-4, 1]]);
   });
 
-  it('extend should make rectabgle bigger', function() {
+  it('extend should make rectangle bigger', function() {
     var r = rect([1, 5], [3, 4]);
     r.extend([2, 5]);
     r.origin.should.eql([1, 5]);
