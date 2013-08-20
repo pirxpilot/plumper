@@ -1,7 +1,7 @@
 {
   "name": "plumper",
-  "version": "0.0.0",
-  "description": "Converts a polyline to a polygon outline",
+  "version": "0.0.1",
+  "description": "Makes your polyline look fat using routeboxer algorithm",
   "main": "index.js",
   "scripts": {
     "test": "make test"
