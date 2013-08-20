@@ -13,7 +13,8 @@
   "keywords": [
     "geo",
     "polyline",
-    "polygon"
+    "polygon",
+    "routeboxer"
   ],
   "author": "Damian Krzeminski <pirxpilot@code42day.com>",
   "license": "MIT",

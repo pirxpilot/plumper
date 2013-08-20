@@ -1,0 +1,24 @@
+{
+  "name": "plumper",
+  "repo": "code42day/plumper",
+  "description": "Makes your polyline look fat using routeboxer algorithm",
+  "version": "0.0.1",
+  "keywords": [
+    "geo",
+    "polyline",
+    "polygon",
+    "routeboxer"
+  ],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "lib/grid.js",
+    "lib/math.js",
+    "lib/outline.js",
+    "lib/plumper.js",
+    "lib/rect.js"
+  ]
+}

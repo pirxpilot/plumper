@@ -5,7 +5,6 @@
 
 Makes your polyline look fat using routeboxer algorithm
 
-
 ## API
 
 ```javascript
@@ -16,3 +15,9 @@ var fat = 5;
 // polygon is an array of points outlining a polygon that completely encompasses a line
 var polygon = plumper(polyline, fat);
 ```
+
+# License
+
+The MIT License (MIT)
+
+Copyright (c) 2013 [code42day.com](http://code42day.com)
