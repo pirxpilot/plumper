@@ -1,3 +1,6 @@
+[![Build Status](https://secure.travis-ci.org/code42day/plumper.png)](http://travis-ci.org/code42day/plumper)
+[![NPM version](https://badge.fury.io/js/plumper.png)](http://badge.fury.io/js/plumper)
+
 # plumper
 
 Makes your polyline look fat using routeboxer algorithm
