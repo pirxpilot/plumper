@@ -3,8 +3,8 @@
 
 # plumper
 
-Makes your polyline look fat using routeboxer algorithm.
-Check out [the live demo](http://code42day.github.io/plumper/).
+Makes your polyline look fat using [routeboxer][1] algorithm.
+Check out [the live demo][2].
 
 ## API
 
@@ -22,3 +22,6 @@ var polygon = plumper(polyline, fat);
 The MIT License (MIT)
 
 Copyright (c) 2013 [code42day.com](http://code42day.com)
+
+[1]: http://google-maps-utility-library-v3.googlecode.com/svn/trunk/routeboxer/docs/examples.html
+[2]: http://code42day.github.io/plumper/
