@@ -3,7 +3,8 @@
 
 # plumper
 
-Makes your polyline look fat using routeboxer algorithm
+Makes your polyline look fat using routeboxer algorithm.
+Check out [the live demo](http://code42day.github.io/plumper/).
 
 ## API
 
