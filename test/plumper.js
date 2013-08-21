@@ -25,6 +25,6 @@ describe('plumper', function() {
 
      should.exist(boxes);
      boxes.should.have.lengthOf(1);
-     boxes[0].should.be.eql([[1, 2], [7, 4]]);
+     boxes[0].should.be.eql([[1, 2], [8, 5]]);
   });
 });
