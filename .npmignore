@@ -1,0 +1,8 @@
+components
+build
+test
+Makefile
+History.md
+.travis.yml
+.jshintrc
+component.json
