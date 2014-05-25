@@ -1,5 +1,5 @@
-[![Build Status](https://secure.travis-ci.org/code42day/plumper.png)](http://travis-ci.org/code42day/plumper)
-[![NPM version](https://badge.fury.io/js/plumper.png)](http://badge.fury.io/js/plumper)
+[![Build Status](https://img.shields.io/travis/code42day/plumper.svg)](http://travis-ci.org/code42day/plumper)
+[![NPM version](https://img.shields.io/npm/v/plumper.svg)](http://badge.fury.io/js/plumper)
 
 # plumper
 
