@@ -1,4 +1,10 @@
 
+1.0.0 / 2016-12-15
+==================
+
+ * update dev dependencies
+ * switch to browserify build
+
 0.0.2 / 2013-08-20 
 ==================
 
