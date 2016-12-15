@@ -12,7 +12,7 @@ Check out [the live demo][demo].
 
   Install with [npm]:
 
-    $ npm install vis-why
+    $ npm install plumper
 
 ## API
 
