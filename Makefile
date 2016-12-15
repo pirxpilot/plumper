@@ -1,18 +1,30 @@
-all: lint test build
+NODE_BIN=./node_modules/.bin
+PROJECT=vis-why
 
-lint:
-	./node_modules/.bin/jshint *.js lib test
+all: check compile
 
-test:
-	./node_modules/.bin/mocha --recursive
+check: lint test
 
-components: component.json
-	@component install --dev
+lint: node_modules
+	$(NODE_BIN)/jshint index.js lib test
 
-build: components index.js lib/*.js
-	component build --dev
+test: node_modules
+	$(NODE_BIN)/mocha --require should test
+
+
+compile: build/build.js
+
+build/build.js: node_modules index.js
+	mkdir -p build
+	browserify --require ./index.js:$(PROJECT) --outfile $@
+
+node_modules: package.json
+	npm install && touch $@
 
 clean:
 	rm -rf build
 
-.PHONY: all build lint test
+distclean: clean
+	rm -fr node_modules
+
+.PHONY: clean distclean lint check all compile test
