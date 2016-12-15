@@ -1,10 +1,18 @@
-[![Build Status](https://img.shields.io/travis/code42day/plumper.svg)](http://travis-ci.org/code42day/plumper)
-[![NPM version](https://img.shields.io/npm/v/plumper.svg)](http://badge.fury.io/js/plumper)
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Dependency Status][gemnasium-image]][gemnasium-url]
 
 # plumper
 
-Makes your polyline look fat using [routeboxer][1] algorithm.
-Check out [the live demo][2].
+Makes your polyline look fat using routeboxer algorithm.
+
+Check out [the live demo][demo].
+
+## Installation
+
+  Install with [npm]:
+
+    $ npm install vis-why
 
 ## API
 
@@ -21,7 +29,20 @@ var polygon = plumper(polyline, fat);
 
 The MIT License (MIT)
 
-Copyright (c) 2013 [code42day.com](http://code42day.com)
+Copyright (c) 2013 [code42day]
 
-[1]: http://google-maps-utility-library-v3.googlecode.com/svn/trunk/routeboxer/docs/examples.html
-[2]: http://code42day.github.io/plumper/
+[routeboxer]: http://google-maps-utility-library-v3.googlecode.com/svn/trunk/routeboxer/docs/examples.html
+[demo]: http://code42day.github.io/plumper/
+
+[code42day]: http://code42day.com
+[component(1)]: http://component.io
+[npm]: https://www.npmjs.org/
+
+[npm-image]: https://img.shields.io/npm/v/plumper.svg
+[npm-url]: https://npmjs.org/package/plumper
+
+[travis-url]: https://travis-ci.org/code42day/plumper
+[travis-image]: https://img.shields.io/travis/code42day/plumper.svg
+
+[gemnasium-image]: https://img.shields.io/gemnasium/code42day/plumper.svg
+[gemnasium-url]: https://gemnasium.com/code42day/plumper
