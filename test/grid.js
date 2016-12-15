@@ -1,4 +1,3 @@
-var should = require('should');
 var grid = require('../lib/grid');
 
 /*global describe, it */
@@ -146,7 +145,7 @@ describe('grid', function() {
   });
 
   it('findBoxes should find a single box regardless of the orientation', function() {
-    var g = grid([5, 5]), boxes, x, y;
+    var g = grid([5, 5]), boxes, x;
 
     for(x = 2; x < 4; x++) {
       g.set([x, 0]);
@@ -162,7 +161,7 @@ describe('grid', function() {
   });
 
   it('findBoxes should find different number for row-by-row and column-by-column', function() {
-    var g = grid([5, 5]), boxes, x, y;
+    var g = grid([5, 5]), boxes, x;
 
     /*
        012234
@@ -195,7 +194,7 @@ describe('grid', function() {
 
 
   it('findBoxes should work with small grids', function() {
-    var g = grid([3, 3]), boxes, x, y;
+    var g = grid([3, 3]), boxes;
 
     /*
        012

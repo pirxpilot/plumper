@@ -41,12 +41,11 @@ describe('rect', function() {
     var r = rect([1, 5], [3, 4]);
     r.extend([2, 5]);
     r.origin.should.eql([1, 5]);
-    r.extent.should.eql([5, 9]);    
+    r.extent.should.eql([5, 9]);
   });
 
   it('merge should merge rectangles vertically', function() {
-    var r = rect([0, 1], [3, 5]),
-      box = r.box();
+    var r = rect([0, 1], [3, 5]);
 
     should.exist(r.merge(rect([0, 6], [3, 2])));
     r.origin.should.eql([0, 1]);
@@ -69,8 +68,7 @@ describe('rect', function() {
 
 
   it('merge should merge rectangles horizontally', function() {
-    var r = rect([1, 0], [5, 3]),
-      box = r.box();
+    var r = rect([1, 0], [5, 3]);
 
     should.exist(r.merge(rect([6, 0], [2, 3]), true));
     r.origin.should.eql([1, 0]);

@@ -1,13 +1,6 @@
 {
-  "undef": "true",
-  "unused": "true",
-  "laxbreak": "true",
-  "globals": {
-    "console": false,
-    "exports": false,
-    "process": false,
-    "require": false,
-    "module": false,
-    "__dirname": false
-  }
+  "undef": true,
+  "unused": true,
+  "laxbreak": true,
+  "node": true
 }

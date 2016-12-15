@@ -1,4 +1,3 @@
-var should = require('should');
 var math = require('../lib/math');
 
 /*global describe, it */
@@ -83,11 +82,11 @@ describe('math.scale', function() {
     scale.toGrid([
       [-3, 7],
       [-2.5, 8.4],
-      [7.3, 22.1]     
+      [7.3, 22.1]
     ]).should.eql([
       [0, 0],
       [0, 0],
-      [5, 7]    
+      [5, 7]
     ]);
   });
 });

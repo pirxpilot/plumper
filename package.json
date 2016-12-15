@@ -19,8 +19,10 @@
   "author": "Damian Krzeminski <pirxpilot@code42day.com>",
   "license": "MIT",
   "devDependencies": {
+    "@pirxpilot/matcha": "~1",
     "jshint": "~2",
     "mocha": "~3",
+    "polyline-encoded": "^0.0.8",
     "should": "~11"
   },
   "files": [
