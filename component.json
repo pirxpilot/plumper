@@ -2,7 +2,7 @@
   "name": "plumper",
   "repo": "code42day/plumper",
   "description": "Makes your polyline look fat using routeboxer algorithm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "geo",
     "polyline",

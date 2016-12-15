@@ -1,4 +1,11 @@
 
+1.0.1 / 2016-12-15
+==================
+
+ * fix lint options
+ * minor optimizations
+ * add basic benchmarks
+
 1.0.0 / 2016-12-15
 ==================
 

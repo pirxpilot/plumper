@@ -1,6 +1,6 @@
 {
   "name": "plumper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Makes your polyline look fat using routeboxer algorithm",
   "main": "index.js",
   "scripts": {
