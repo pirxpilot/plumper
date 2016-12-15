@@ -19,9 +19,9 @@
   "author": "Damian Krzeminski <pirxpilot@code42day.com>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "~1.12.0",
-    "jshint": "~2.1.10",
-    "should": "~1.2.2"
+    "jshint": "~2",
+    "mocha": "~3",
+    "should": "~11"
   },
   "files": [
     "index.js",
