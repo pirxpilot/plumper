@@ -1,4 +1,3 @@
-var should = require('should');
 var math = require('../lib/math');
 
 /*global describe, it */
