@@ -29,20 +29,18 @@ var polygon = plumper(polyline, fat);
 
 The MIT License (MIT)
 
-Copyright (c) 2013 [code42day]
+Copyright (c) 2013 [Damian Krzeminski](https://pirxpilot.me)
 
 [routeboxer]: http://google-maps-utility-library-v3.googlecode.com/svn/trunk/routeboxer/docs/examples.html
-[demo]: http://code42day.github.io/plumper/
+[demo]: http://pirxpilot.github.io/plumper/
 
-[code42day]: http://code42day.com
-[component(1)]: http://component.io
 [npm]: https://www.npmjs.org/
 
 [npm-image]: https://img.shields.io/npm/v/plumper.svg
 [npm-url]: https://npmjs.org/package/plumper
 
-[travis-url]: https://travis-ci.org/code42day/plumper
-[travis-image]: https://img.shields.io/travis/code42day/plumper.svg
+[travis-url]: https://travis-ci.org/pirxpilot/plumper
+[travis-image]: https://img.shields.io/travis/pirxpilot/plumper.svg
 
-[gemnasium-image]: https://img.shields.io/gemnasium/code42day/plumper.svg
-[gemnasium-url]: https://gemnasium.com/code42day/plumper
+[gemnasium-image]: https://img.shields.io/gemnasium/pirxpilot/plumper.svg
+[gemnasium-url]: https://gemnasium.com/pirxpilot/plumper
