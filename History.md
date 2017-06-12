@@ -1,4 +1,10 @@
 
+1.1.0 / 2017-06-12
+==================
+
+ * add `optimize` parameter that allows for faster / sub-optimal operation
+ * various performance improvements
+
 1.0.2 / 2017-02-19
 ==================
 
