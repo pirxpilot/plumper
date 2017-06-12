@@ -23,7 +23,12 @@ var polyline = [[0,2], [3,4], [7,8]];
 var fat = 5;
 // polygon is an array of points outlining a polygon that completely encompasses a line
 var polygon = plumper(polyline, fat);
+
+
+// if you're OK with slighly larger number of polygons, but you care about speed
+var polygon = plumper(polyline, fat, false);
 ```
+
 
 # License
 
