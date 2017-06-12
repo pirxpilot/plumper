@@ -50,6 +50,21 @@ describe('math.offset', function() {
     math.offset([1, 5], [1.1, 5], 1).should.eql([2.1, 10]);
     math.offset([1, 5], [-1, -3], 1).should.eql([0, 2]);
   });
+
+});
+
+describe('math.move', function() {
+
+  it('should add offset', function() {
+    math.move([1, 5], [1.1, 5]).should.eql([2.1, 10]);
+  });
+
+  it('should change original point', function() {
+    var point = [1, 5];
+    math.move(point, [-1, -3]);
+    point.should.eql([0, 2]);
+  });
+
 });
 
 
