@@ -50,6 +50,21 @@ describe('math.offset', function() {
     math.offset([1, 5], [1.1, 5], 1).should.eql([2.1, 10]);
     math.offset([1, 5], [-1, -3], 1).should.eql([0, 2]);
   });
+
+});
+
+describe('math.move', function() {
+
+  it('should add offset', function() {
+    math.move([1, 5], [1.1, 5]).should.eql([2.1, 10]);
+  });
+
+  it('should change original point', function() {
+    var point = [1, 5];
+    math.move(point, [-1, -3]);
+    point.should.eql([0, 2]);
+  });
+
 });
 
 
@@ -61,7 +76,7 @@ describe('math.scale', function() {
     scale.toReal([0, 0]).should.eql([-3, 7]);
     scale.toReal([1, 2]).should.eql([-1, 11]);
 
-    scale.toReal([
+    scale.toRealArray([
       [0, 0],
       [1, 2],
       [5, 7]
@@ -79,7 +94,7 @@ describe('math.scale', function() {
     scale.toGrid([-2.5, 8.4]).should.eql([0, 0]);
     scale.toGrid([7.3, 22.1]).should.eql([5, 7]);
 
-    scale.toGrid([
+    scale.toGridArray([
       [-3, 7],
       [-2.5, 8.4],
       [7.3, 22.1]

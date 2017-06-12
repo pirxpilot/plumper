@@ -38,4 +38,11 @@ suite('plumper', function () {
       plumper(polyline, 0.25);
     });
   });
+
+  [1000, 5000, 10000, 30000].forEach(function(len) {
+    var polyline = usa.slice(-len);
+    bench('huge unoptimized ' + len, function() {
+      plumper(polyline, 0.25, false);
+    });
+  });
 });
