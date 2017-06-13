@@ -8,13 +8,13 @@ describe('cells', function() {
     var g = cells(3, 2);
     var results = [];
 
-    function add(c) {
-      results.push(c);
+    function add(x, y) {
+      results.push([x, y]);
     }
 
-    g.set([0, 1]);
-    g.set([1, 0]);
-    g.set([2, 1]);
+    g.set(0, 1);
+    g.set(1, 0);
+    g.set(2, 1);
 
     g.forEachMarked(add);
     results.should.eql([[1, 0], [0, 1], [2, 1]], 'row by row');
@@ -23,12 +23,12 @@ describe('cells', function() {
   it('markNeighbors should add neigbors to selected cells', function() {
     var g = cells(5, 5);
 
-    g.markNeighbors([3, 3]);
+    g.markNeighbors(3, 3);
 
     var results = [];
 
-    function add(c) {
-      results.push(c);
+    function add(x, y) {
+      results.push([x, y]);
     }
 
     g.forEachMarked(add);
@@ -44,12 +44,12 @@ describe('cells', function() {
   it('valid should detect valid cells', function() {
     var g = cells(2, 8);
 
-    g.valid([2, 8]).should.not.be.ok();
-    g.valid([0, 8]).should.not.be.ok();
-    g.valid([2, 0]).should.not.be.ok();
+    g.valid(2, 8).should.not.be.ok();
+    g.valid(0, 8).should.not.be.ok();
+    g.valid(2, 0).should.not.be.ok();
 
-    g.valid([0, 0]).should.be.ok();
-    g.valid([1, 7]).should.be.ok();
+    g.valid(0, 0).should.be.ok();
+    g.valid(1, 7).should.be.ok();
   });
 
 });
