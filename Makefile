@@ -1,12 +1,13 @@
 NODE_BIN=./node_modules/.bin
-PROJECT=vis-why
+PROJECT=plumper
+SRC=index.js $(wildcard lib/*.js)
 
 all: check compile
 
 check: lint test
 
 lint: | node_modules
-	$(NODE_BIN)/jshint index.js test benchmark
+	$(NODE_BIN)/jshint $(SRC) test benchmark
 
 test: | node_modules
 	$(NODE_BIN)/mocha --require should test
@@ -16,7 +17,7 @@ benchmark: | node_modules
 
 compile: build/build.js
 
-build/build.js: index.js | node_modules
+build/build.js:  $(SRC) | node_modules
 	mkdir -p build
 	browserify --require ./index.js:$(PROJECT) --outfile $@
 
