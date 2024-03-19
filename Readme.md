@@ -1,6 +1,6 @@
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][gemnasium-image]][gemnasium-url]
+[![Build Status][build-image]][build-url]
+[![Dependency Status][deps-image]][deps-url]
 
 # plumper
 
@@ -41,11 +41,11 @@ Copyright (c) 2013 [Damian Krzeminski](https://pirxpilot.me)
 
 [npm]: https://www.npmjs.org/
 
-[npm-image]: https://img.shields.io/npm/v/plumper.svg
+[npm-image]: https://img.shields.io/npm/v/plumper
 [npm-url]: https://npmjs.org/package/plumper
 
-[travis-url]: https://travis-ci.org/pirxpilot/plumper
-[travis-image]: https://img.shields.io/travis/pirxpilot/plumper.svg
+[build-url]: https://github.com/pirxpilot/plumper/actions/workflows/check.yaml
+[build-image]: https://img.shields.io/github/actions/workflow/status/pirxpilot/plumper/check.yaml?branch=main
 
-[gemnasium-image]: https://img.shields.io/gemnasium/pirxpilot/plumper.svg
-[gemnasium-url]: https://gemnasium.com/pirxpilot/plumper
+[deps-image]: https://img.shields.io/librariesio/release/npm/plumper
+[deps-url]: https://libraries.io/npm/plumper
