@@ -19,8 +19,8 @@
   "author": "Damian Krzeminski <pirxpilot@furkot.com>",
   "license": "MIT",
   "devDependencies": {
+    "@pirxpilot/jshint": "~3",
     "@pirxpilot/matcha": "~1",
-    "jshint": "~2",
     "mocha": "~3",
     "polyline-encoded": "^0.0.8",
     "should": "~11"
