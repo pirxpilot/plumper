@@ -21,9 +21,8 @@
   "devDependencies": {
     "@pirxpilot/jshint": "~3",
     "@pirxpilot/matcha": "~1",
-    "mocha": "~3",
     "polyline-encoded": "^0.0.8",
-    "should": "~11"
+    "should": "~13"
   },
   "files": [
     "index.js",

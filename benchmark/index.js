@@ -19,29 +19,29 @@ suite('plumper', function () {
   // or switch to fixed number of iterations
   // set('iterations', 500);
 
-  before(function() {
+  before(function () {
     this.shortPolyline = require('../test/fixtures/short.json');
     this.longPolyline = require('../test/fixtures/long.json');
   });
 
-  bench('short', function() {
+  bench('short', function () {
     plumper(this.shortPolyline, 0.25);
   });
 
-  bench('long', function() {
+  bench('long', function () {
     plumper(this.longPolyline, 0.25);
   });
 
-  [1000, 5000, 10000, 30000].forEach(function(len) {
+  [1000, 5000, 10000, 30000].forEach(function (len) {
     var polyline = usa.slice(-len);
-    bench('huge ' + len, function() {
+    bench('huge ' + len, function () {
       plumper(polyline, 0.25);
     });
   });
 
-  [1000, 5000, 10000, 30000].forEach(function(len) {
+  [1000, 5000, 10000, 30000].forEach(function (len) {
     var polyline = usa.slice(-len);
-    bench('huge unoptimized ' + len, function() {
+    bench('huge unoptimized ' + len, function () {
       plumper(polyline, 0.25, false);
     });
   });
