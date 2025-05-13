@@ -1,7 +1,0 @@
-{
-  "undef": true,
-  "unused": true,
-  "laxbreak": true,
-  "node": true,
-  "esversion": 11
-}

@@ -1,19 +1,16 @@
-var should = require('should');
-var outline = require('../lib/outline');
+const should = require('should');
+const outline = require('../lib/outline');
 
 const { describe, it } = require('node:test');
 
-describe('outline', function () {
-
-  it('should return nothing for empty input', function () {
+describe('outline', () => {
+  it('should return nothing for empty input', () => {
     should.not.exist(outline());
     should.not.exist(outline([]));
   });
 
-  it('should outline a single point', function () {
-    var o = outline([
-      [0, 0]
-    ]);
+  it('should outline a single point', () => {
+    const o = outline([[0, 0]]);
 
     should.exist(o);
     o.should.have.lengthOf(2);
@@ -24,9 +21,8 @@ describe('outline', function () {
     o[0].should.not.be.equal(o[1]);
   });
 
-
-  it('should outline a polygon', function () {
-    var o = outline([
+  it('should outline a polygon', () => {
+    const o = outline([
       [0, 0],
       [3, 4],
       [-2, 6],

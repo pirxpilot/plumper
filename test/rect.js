@@ -1,12 +1,11 @@
-var should = require('should');
-var rect = require('../lib/rect');
+const should = require('should');
+const rect = require('../lib/rect');
 
 const { describe, it } = require('node:test');
 
-describe('rect', function () {
-
-  it('box should return bounding box', function () {
-    var b;
+describe('rect', () => {
+  it('box should return bounding box', () => {
+    let b;
 
     b = rect([-1, -5]).box();
 
@@ -33,9 +32,8 @@ describe('rect', function () {
     ]);
   });
 
-
-  it('flip should reverse coordinates', function () {
-    var b = rect([0, 0], [3, 5]).flip().box();
+  it('flip should reverse coordinates', () => {
+    let b = rect([0, 0], [3, 5]).flip().box();
 
     b.should.have.length(2);
     b.should.eql([
@@ -52,24 +50,24 @@ describe('rect', function () {
     ]);
   });
 
-  it('extend should make rectangle bigger', function () {
-    var r = rect([1, 5], [3, 4]);
+  it('extend should make rectangle bigger', () => {
+    const r = rect([1, 5], [3, 4]);
     r.extend([2, 5]);
     r.origin.should.eql([1, 5]);
     r.extent.should.eql([5, 9]);
   });
 
-  it('merge should merge rectangles vertically', function () {
-    var r = rect([0, 1], [3, 5]);
+  it('merge should merge rectangles vertically', () => {
+    const r = rect([0, 1], [3, 5]);
 
     should.exist(r.merge(rect([0, 6], [3, 2])));
     r.origin.should.eql([0, 1]);
     r.extent.should.eql([3, 7]);
   });
 
-  it('merge should ignore non merge-able rectangles', function () {
-    var r = rect([0, 1], [3, 5]),
-      box = r.box();
+  it('merge should ignore non merge-able rectangles', () => {
+    const r = rect([0, 1], [3, 5]);
+    const box = r.box();
 
     should.not.exist(r.merge(rect([0, 6], [2, 2])), 'width does not match');
     box.should.eql(r.box());
@@ -81,20 +79,22 @@ describe('rect', function () {
     box.should.eql(r.box());
   });
 
-
-  it('merge should merge rectangles horizontally', function () {
-    var r = rect([1, 0], [5, 3]);
+  it('merge should merge rectangles horizontally', () => {
+    const r = rect([1, 0], [5, 3]);
 
     should.exist(r.merge(rect([6, 0], [2, 3]), true));
     r.origin.should.eql([1, 0]);
     r.extent.should.eql([7, 3]);
   });
 
-  it('merge should ignore non merge-able rectangles', function () {
-    var r = rect([1, 0], [5, 3]),
-      box = r.box();
+  it('merge should ignore non merge-able rectangles', () => {
+    const r = rect([1, 0], [5, 3]);
+    const box = r.box();
 
-    should.not.exist(r.merge(rect([6, 0], [2, 2], true)), 'width does not match');
+    should.not.exist(
+      r.merge(rect([6, 0], [2, 2], true)),
+      'width does not match'
+    );
     box.should.eql(r.box());
 
     should.not.exist(r.merge(rect([6, 1], [2, 3], true)), 'bad origin x');

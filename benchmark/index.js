@@ -1,18 +1,18 @@
-var fs = require('fs');
-var polyline = require('polyline-encoded');
-var plumper = require('..');
+const fs = require('node:fs');
+const polyline = require('polyline-encoded');
+const plumper = require('..');
 
 /* global suite, set, before, bench */
 
 function readPolyline(filename) {
-  var path = [__dirname, '../test/fixtures', filename].join('/');
-  var txt = fs.readFileSync(path, 'utf8');
+  const path = [__dirname, '../test/fixtures', filename].join('/');
+  const txt = fs.readFileSync(path, 'utf8');
   return polyline.decode(txt);
 }
 
-var usa = readPolyline('usa.txt');
+const usa = readPolyline('usa.txt');
 
-suite('plumper', function () {
+suite('plumper', () => {
   // run each bench for at least 2s
   set('type', 'adaptive');
   set('mintime', 2000);
@@ -32,16 +32,16 @@ suite('plumper', function () {
     plumper(this.longPolyline, 0.25);
   });
 
-  [1000, 5000, 10000, 30000].forEach(function (len) {
-    var polyline = usa.slice(-len);
-    bench('huge ' + len, function () {
+  [1000, 5000, 10000, 30000].forEach(len => {
+    const polyline = usa.slice(-len);
+    bench(`huge ${len}`, () => {
       plumper(polyline, 0.25);
     });
   });
 
-  [1000, 5000, 10000, 30000].forEach(function (len) {
-    var polyline = usa.slice(-len);
-    bench('huge unoptimized ' + len, function () {
+  [1000, 5000, 10000, 30000].forEach(len => {
+    const polyline = usa.slice(-len);
+    bench(`huge unoptimized ${len}`, () => {
       plumper(polyline, 0.25, false);
     });
   });

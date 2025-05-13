@@ -1,20 +1,17 @@
-var should = require('should');
-var plumper = require('../lib/plumper');
+const should = require('should');
+const plumper = require('../lib/plumper');
 
 const { describe, it } = require('node:test');
 
-describe('plumper', function () {
-
-  it('should return nothing for invalid input', function () {
+describe('plumper', () => {
+  it('should return nothing for invalid input', () => {
     should.not.exist(plumper());
     should.not.exist(plumper(4));
     should.not.exist(plumper(4, []));
   });
 
-  it('should calculate a single box for a single point', function () {
-    var boxes = plumper([
-      [0, 0]
-    ], 1);
+  it('should calculate a single box for a single point', () => {
+    const boxes = plumper([[0, 0]], 1);
 
     should.exist(boxes);
     boxes.should.have.lengthOf(1);
@@ -25,11 +22,14 @@ describe('plumper', function () {
     ]);
   });
 
-  it('should calculate a single box for a horizontal line', function () {
-    var boxes = plumper([
-      [2, 3],
-      [6, 3]
-    ], 1);
+  it('should calculate a single box for a horizontal line', () => {
+    const boxes = plumper(
+      [
+        [2, 3],
+        [6, 3]
+      ],
+      1
+    );
 
     should.exist(boxes);
     boxes.should.have.lengthOf(1);

@@ -19,8 +19,9 @@
   "author": "Damian Krzeminski <pirxpilot@furkot.com>",
   "license": "MIT",
   "devDependencies": {
-    "@pirxpilot/jshint": "~3",
+    "@biomejs/biome": "^1.9.4",
     "@pirxpilot/matcha": "~1",
+    "esbuild": "^0.25.4",
     "polyline-encoded": "^0.0.8",
     "should": "~13"
   },
