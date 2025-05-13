@@ -13,7 +13,7 @@ format: | node_modules
 	$(NODE_BIN)/biome check --fix
 
 test: | node_modules
-	node --require should --test
+	node --test
 
 benchmark: | node_modules
 	$(NODE_BIN)/matcha --reporter plain benchmark

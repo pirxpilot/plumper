@@ -3,7 +3,7 @@ const cells = require('../lib/cells');
 const { describe, it } = require('node:test');
 
 describe('cells', () => {
-  it('forEachMarked should enumerate all cells that are set', () => {
+  it('forEachMarked should enumerate all cells that are set', t => {
     const g = cells(3, 2);
     const results = [];
 
@@ -16,7 +16,8 @@ describe('cells', () => {
     g.set(2, 1);
 
     g.forEachMarked(add);
-    results.should.eql(
+    t.assert.deepEqual(
+      results,
       [
         [1, 0],
         [0, 1],
@@ -26,7 +27,7 @@ describe('cells', () => {
     );
   });
 
-  it('markNeighbors should add neigbors to selected cells', () => {
+  it('markNeighbors should add neigbors to selected cells', t => {
     const g = cells(5, 5);
 
     g.markNeighbors(3, 3);
@@ -39,8 +40,8 @@ describe('cells', () => {
 
     g.forEachMarked(add);
 
-    results.should.have.length(8);
-    results.should.eql([
+    t.assert.equal(results.length, 8);
+    t.assert.deepEqual(results, [
       [2, 2],
       [3, 2],
       [4, 2],
@@ -52,14 +53,14 @@ describe('cells', () => {
     ]);
   });
 
-  it('valid should detect valid cells', () => {
+  it('valid should detect valid cells', t => {
     const g = cells(2, 8);
 
-    g.valid(2, 8).should.not.be.ok();
-    g.valid(0, 8).should.not.be.ok();
-    g.valid(2, 0).should.not.be.ok();
+    t.assert.ok(!g.valid(2, 8));
+    t.assert.ok(!g.valid(0, 8));
+    t.assert.ok(!g.valid(2, 0));
 
-    g.valid(0, 0).should.be.ok();
-    g.valid(1, 7).should.be.ok();
+    t.assert.ok(g.valid(0, 0));
+    t.assert.ok(g.valid(1, 7));
   });
 });

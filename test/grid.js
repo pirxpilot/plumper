@@ -3,20 +3,20 @@ const grid = require('../lib/grid');
 const { describe, it } = require('node:test');
 
 describe('grid', () => {
-  it('should plot points', () => {
+  it('should plot points', t => {
     const g = grid([7, 7]);
     g.plot([2, 2], [2, 2]);
     const line = g.filter();
-    line.should.have.length(1);
-    line.should.eql([[2, 2]]);
+    t.assert.equal(line.length, 1);
+    t.assert.deepEqual(line, [[2, 2]]);
   });
 
-  it('should plot horizontal lines', () => {
+  it('should plot horizontal lines', t => {
     let g = grid([7, 7]);
     g.plot([2, 2], [5, 2]);
     let line = g.filter();
-    line.should.have.length(4);
-    line.should.eql([
+    t.assert.equal(line.length, 4);
+    t.assert.deepEqual(line, [
       [2, 2],
       [3, 2],
       [4, 2],
@@ -26,8 +26,8 @@ describe('grid', () => {
     g = grid([7, 7]);
     g.plot([5, 2], [2, 2]);
     line = g.filter();
-    line.should.have.length(4);
-    line.should.eql([
+    t.assert.equal(line.length, 4);
+    t.assert.deepEqual(line, [
       [2, 2],
       [3, 2],
       [4, 2],
@@ -35,12 +35,12 @@ describe('grid', () => {
     ]);
   });
 
-  it('should plot vertical lines', () => {
+  it('should plot vertical lines', t => {
     let g = grid([7, 7]);
     g.plot([2, 2], [2, 5]);
     let line = g.filter();
-    line.should.have.length(4);
-    line.should.eql([
+    t.assert.equal(line.length, 4);
+    t.assert.deepEqual(line, [
       [2, 2],
       [2, 3],
       [2, 4],
@@ -50,8 +50,8 @@ describe('grid', () => {
     g = grid([7, 7]);
     g.plot([2, 5], [2, 2]);
     line = g.filter();
-    line.should.have.length(4);
-    line.should.eql([
+    t.assert.equal(line.length, 4);
+    t.assert.deepEqual(line, [
       [2, 2],
       [2, 3],
       [2, 4],
@@ -59,12 +59,12 @@ describe('grid', () => {
     ]);
   });
 
-  it('should plot slanted lines', () => {
+  it('should plot slanted lines', t => {
     let g = grid([10, 6]);
     g.plot([0, 0], [9, 5]);
     let line = g.filter();
-    line.should.have.length(10);
-    line.should.eql([
+    t.assert.equal(line.length, 10);
+    t.assert.deepEqual(line, [
       [0, 0],
       [1, 1],
       [2, 1],
@@ -80,8 +80,8 @@ describe('grid', () => {
     g = grid([10, 10]);
     g.plot([5, 9], [0, 0]);
     line = g.filter();
-    line.should.have.length(10);
-    line.should.eql([
+    t.assert.equal(line.length, 10);
+    t.assert.deepEqual(line, [
       [0, 0],
       [1, 1],
       [1, 2],
@@ -95,14 +95,14 @@ describe('grid', () => {
     ]);
   });
 
-  it('should add neigbors to selected cells', () => {
+  it('should add neigbors to selected cells', t => {
     let g = grid([5, 5]);
 
     g.set([3, 3]);
     g.addNeighbors();
     let selected = g.filter();
-    selected.should.have.length(9);
-    selected.should.eql([
+    t.assert.equal(selected.length, 9);
+    t.assert.deepEqual(selected, [
       [2, 2],
       [3, 2],
       [4, 2],
@@ -119,8 +119,8 @@ describe('grid', () => {
     g.addNeighbors();
     selected = g.filter();
 
-    selected.should.have.length(4);
-    selected.should.eql([
+    t.assert.equal(selected.length, 4);
+    t.assert.deepEqual(selected, [
       [0, 0],
       [1, 0],
       [0, 1],
@@ -131,10 +131,10 @@ describe('grid', () => {
     g.set([4, 4]);
     g.set([3, 4]);
     g.addNeighbors();
-    selected.should.have.length(4);
+    t.assert.equal(selected.length, 4);
   });
 
-  it('forEach enumerates all cells', () => {
+  it('forEach enumerates all cells', t => {
     const g = grid([3, 2]);
 
     function add(c) {
@@ -143,8 +143,9 @@ describe('grid', () => {
 
     let cells = [];
     g.forEach(add);
-    cells.should.have.length(6);
-    cells.should.eql(
+    t.assert.equal(cells.length, 6);
+    t.assert.deepEqual(
+      cells,
       [
         [0, 0],
         [1, 0],
@@ -159,8 +160,9 @@ describe('grid', () => {
     // reverse
     cells = [];
     g.forEach(add, true);
-    cells.should.have.length(6);
-    cells.should.eql(
+    t.assert.equal(cells.length, 6);
+    t.assert.deepEqual(
+      cells,
       [
         [0, 0],
         [0, 1],
@@ -173,15 +175,15 @@ describe('grid', () => {
     );
   });
 
-  it('findBoxes should not find any boxes in an empty grid', () => {
+  it('findBoxes should not find any boxes in an empty grid', t => {
     const g = grid([5, 5]);
     let boxes = g.findBoxes();
-    boxes.should.have.length(0);
+    t.assert.equal(boxes.length, 0);
     boxes = g.findBoxes(true);
-    boxes.should.have.length(0);
+    t.assert.equal(boxes.length, 0);
   });
 
-  it('findBoxes should find a single box regardless of the orientation', () => {
+  it('findBoxes should find a single box regardless of the orientation', t => {
     const g = grid([5, 5]);
 
     for (let x = 2; x < 4; x++) {
@@ -189,21 +191,21 @@ describe('grid', () => {
       g.set([x, 1]);
     }
     let boxes = g.findBoxes();
-    boxes.should.have.length(1);
-    boxes[0].box().should.eql([
+    t.assert.equal(boxes.length, 1);
+    t.assert.deepEqual(boxes[0].box(), [
       [2, 0],
       [3, 1]
     ]);
 
     boxes = g.findBoxes(true);
-    boxes.should.have.length(1);
-    boxes[0].box().should.eql([
+    t.assert.equal(boxes.length, 1);
+    t.assert.deepEqual(boxes[0].box(), [
       [2, 0],
       [3, 1]
     ]);
   });
 
-  it('findBoxes should find different number for row-by-row and column-by-column', () => {
+  it('findBoxes should find different number for row-by-row and column-by-column', t => {
     const g = grid([5, 5]);
 
     /*
@@ -223,33 +225,33 @@ describe('grid', () => {
     }
 
     let boxes = g.findBoxes();
-    boxes.should.have.length(2);
-    boxes[0].box().should.eql([
+    t.assert.equal(boxes.length, 2);
+    t.assert.deepEqual(boxes[0].box(), [
       [2, 0],
       [3, 0]
     ]);
-    boxes[1].box().should.eql([
+    t.assert.deepEqual(boxes[1].box(), [
       [3, 1],
       [4, 2]
     ]);
 
     boxes = g.findBoxes(true);
-    boxes.should.have.length(3);
-    boxes[0].box().should.eql([
+    t.assert.equal(boxes.length, 3);
+    t.assert.deepEqual(boxes[0].box(), [
       [2, 0],
       [2, 0]
     ]);
-    boxes[1].box().should.eql([
+    t.assert.deepEqual(boxes[1].box(), [
       [3, 0],
       [3, 2]
     ]);
-    boxes[2].box().should.eql([
+    t.assert.deepEqual(boxes[2].box(), [
       [4, 1],
       [4, 2]
     ]);
   });
 
-  it('findBoxes should work with small grids', () => {
+  it('findBoxes should work with small grids', t => {
     const g = grid([3, 3]);
 
     /*
@@ -268,27 +270,27 @@ describe('grid', () => {
     g.set([0, 1]);
 
     let boxes = g.findBoxes();
-    boxes.should.have.length(3);
-    boxes[0].box().should.eql([
+    t.assert.equal(boxes.length, 3);
+    t.assert.deepEqual(boxes[0].box(), [
       [1, 0],
       [2, 0]
     ]);
-    boxes[1].box().should.eql([
+    t.assert.deepEqual(boxes[1].box(), [
       [0, 1],
       [2, 1]
     ]);
-    boxes[2].box().should.eql([
+    t.assert.deepEqual(boxes[2].box(), [
       [1, 2],
       [2, 2]
     ]);
 
     boxes = g.findBoxes(true);
-    boxes.should.have.length(2);
-    boxes[0].box().should.eql([
+    t.assert.equal(boxes.length, 2);
+    t.assert.deepEqual(boxes[0].box(), [
       [0, 1],
       [0, 1]
     ]);
-    boxes[1].box().should.eql([
+    t.assert.deepEqual(boxes[1].box(), [
       [1, 0],
       [2, 2]
     ]);
