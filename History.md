@@ -1,4 +1,11 @@
 
+2.0.0 / 2025-05-13
+==================
+
+ * transition to ESM format
+ * use `node:assert` instead of `should`
+ * use `biome` as a linter and formatter
+
 1.2.0 / 2024-03-19
 ==================
 
