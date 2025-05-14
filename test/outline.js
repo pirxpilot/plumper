@@ -1,41 +1,35 @@
-var should = require('should');
-var outline = require('../lib/outline');
+import { describe, it } from 'node:test';
+import outline from '../lib/outline.js';
 
-const { describe, it } = require('node:test');
-
-describe('outline', function () {
-
-  it('should return nothing for empty input', function () {
-    should.not.exist(outline());
-    should.not.exist(outline([]));
+describe('outline', () => {
+  it('should return nothing for empty input', t => {
+    t.assert.equal(outline(), undefined);
+    t.assert.equal(outline([]), undefined);
   });
 
-  it('should outline a single point', function () {
-    var o = outline([
-      [0, 0]
-    ]);
+  it('should outline a single point', t => {
+    const o = outline([[0, 0]]);
 
-    should.exist(o);
-    o.should.have.lengthOf(2);
-    o.should.be.eql([
+    t.assert.ok(o);
+    t.assert.equal(o.length, 2);
+    t.assert.deepEqual(o, [
       [0, 0],
       [0, 0]
     ]);
-    o[0].should.not.be.equal(o[1]);
+    t.assert.notEqual(o[0], o[1]);
   });
 
-
-  it('should outline a polygon', function () {
-    var o = outline([
+  it('should outline a polygon', t => {
+    const o = outline([
       [0, 0],
       [3, 4],
       [-2, 6],
       [0, 7]
     ]);
 
-    should.exist(o);
-    o.should.have.lengthOf(2);
-    o.should.be.eql([
+    t.assert.ok(o);
+    t.assert.equal(o.length, 2);
+    t.assert.deepEqual(o, [
       [-2, 0],
       [3, 7]
     ]);

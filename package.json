@@ -2,7 +2,8 @@
   "name": "plumper",
   "version": "1.2.0",
   "description": "Makes your polyline look fat using routeboxer algorithm",
-  "main": "index.js",
+  "type": "module",
+  "exports": "./lib/plumper.js",
   "scripts": {
     "test": "make test"
   },
@@ -19,10 +20,10 @@
   "author": "Damian Krzeminski <pirxpilot@furkot.com>",
   "license": "MIT",
   "devDependencies": {
-    "@pirxpilot/jshint": "~3",
+    "@biomejs/biome": "^1.9.4",
     "@pirxpilot/matcha": "~1",
-    "polyline-encoded": "^0.0.8",
-    "should": "~13"
+    "esbuild": "^0.25.4",
+    "polyline-encoded": "^0.0.9"
   },
   "files": [
     "index.js",

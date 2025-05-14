@@ -1,16 +1,19 @@
 NODE_BIN=./node_modules/.bin
 PROJECT=plumper
-SRC=index.js $(wildcard lib/*.js)
+SRC=$(wildcard lib/*.js)
 
 all: check compile
 
 check: lint test
 
 lint: | node_modules
-	$(NODE_BIN)/jshint $(SRC) test benchmark
+	$(NODE_BIN)/biome ci
+
+format: | node_modules
+	$(NODE_BIN)/biome check --fix
 
 test: | node_modules
-	node --require should --test
+	node --test
 
 benchmark: | node_modules
 	$(NODE_BIN)/matcha --reporter plain benchmark
@@ -19,10 +22,17 @@ compile: build/build.js
 
 build/build.js:  $(SRC) | node_modules
 	mkdir -p build
-	browserify --require ./index.js:$(PROJECT) --outfile $@
+	$(NODE_BIN)/esbuild \
+				--bundle \
+				--sourcemap \
+				--define:DEBUG="true" \
+				--global-name=$(PROJECT) \
+				--outfile=$@ \
+				lib/plumper.js
 
 node_modules: package.json
-	yarn && touch $@
+	yarn
+	touch $@
 
 clean:
 	rm -rf build
@@ -30,4 +40,4 @@ clean:
 distclean: clean
 	rm -fr node_modules
 
-.PHONY: clean distclean lint check all compile test benchmark
+.PHONY: clean distclean format lint check all compile test benchmark

@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>Plumper</title>
+  <style>
+    body {
+      padding: 50px;
+      font: Ubuntu, "Helvetica Neue";
+    }
+    canvas {
+      display: block;
+      background-color: f8f8ff;
+      border: solid blue thin;
+    }
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Plumper</h1>
+  <canvas width="700" height="500"></canvas>
+  <button id='draw'>Draw again!</button>
+  <script src="build/build.js"></script>
+  <script>
+    plumper = plumper.default;
+    function genPoly(max) {
+      var i, poly = [];
+      for (i = 0; i < max; i++) {
+        poly.push([Math.random() * 660 + 20, Math.random() * 460 + 20]);
+      }
+      return poly;
+    }
+
+    function drawPoly(ctx, poly) {
+      ctx.beginPath();
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 2;
+      poly.forEach(function(p, i) {
+        ctx[i ? 'lineTo' : 'moveTo'](p[0], p[1]);
+      });
+      ctx.stroke();
+    }
+
+    function drawRect(ctx, rect) {
+      ctx.beginPath();
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = 'black';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
+      ctx.rect(rect[0][0], rect[0][1], rect[1][0] - rect[0][0], rect[1][1] - rect[0][1]);
+      ctx.stroke();
+      ctx.fill();
+    }
+
+    function draw(ctx) {
+      var poly = genPoly(5);
+      ctx.clearRect(0, 0, 700, 500);
+      drawPoly(ctx, poly);
+      var rects = plumper(poly, 20);
+      rects.forEach(drawRect.bind(null, ctx));
+    }
+
+    var canvas = document.querySelector('canvas');
+    var ctx = canvas.getContext('2d');
+    draw(ctx);
+    document.querySelector('#draw').addEventListener('click', draw.bind(null, ctx));
+
+  </script>
+</body>
+</html>
