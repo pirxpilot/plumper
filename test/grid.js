@@ -1,6 +1,5 @@
-const grid = require('../lib/grid');
-
-const { describe, it } = require('node:test');
+import { describe, it } from 'node:test';
+import grid from '../lib/grid.js';
 
 describe('grid', () => {
   it('should plot points', t => {

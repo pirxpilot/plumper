@@ -1,6 +1,5 @@
-const rect = require('../lib/rect');
-
-const { describe, it } = require('node:test');
+import { describe, it } from 'node:test';
+import rect from '../lib/rect.js';
 
 describe('rect', () => {
   it('box should return bounding box', t => {

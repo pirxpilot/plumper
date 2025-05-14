@@ -1,6 +1,6 @@
 NODE_BIN=./node_modules/.bin
 PROJECT=plumper
-SRC=index.js $(wildcard lib/*.js)
+SRC=$(wildcard lib/*.js)
 
 all: check compile
 
@@ -28,7 +28,7 @@ build/build.js:  $(SRC) | node_modules
 				--define:DEBUG="true" \
 				--global-name=$(PROJECT) \
 				--outfile=$@ \
-				index.js
+				lib/plumper.js
 
 node_modules: package.json
 	yarn

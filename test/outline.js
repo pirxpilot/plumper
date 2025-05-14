@@ -1,6 +1,5 @@
-const outline = require('../lib/outline');
-
-const { describe, it } = require('node:test');
+import { describe, it } from 'node:test';
+import outline from '../lib/outline.js';
 
 describe('outline', () => {
   it('should return nothing for empty input', t => {

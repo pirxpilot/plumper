@@ -1,11 +1,12 @@
-const fs = require('node:fs');
-const polyline = require('polyline-encoded');
-const plumper = require('..');
+import fs from 'node:fs';
+import polyline from 'polyline-encoded';
+import plumper from '../lib/plumper.js';
 
-/* global suite, set, before, bench */
+import longPolyline from '../test/fixtures/long.json' with { type: 'json' };
+import shortPolyline from '../test/fixtures/short.json' with { type: 'json' };
 
 function readPolyline(filename) {
-  const path = [__dirname, '../test/fixtures', filename].join('/');
+  const path = [import.meta.dirname, '../test/fixtures', filename].join('/');
   const txt = fs.readFileSync(path, 'utf8');
   return polyline.decode(txt);
 }
@@ -19,17 +20,12 @@ suite('plumper', () => {
   // or switch to fixed number of iterations
   // set('iterations', 500);
 
-  before(function () {
-    this.shortPolyline = require('../test/fixtures/short.json');
-    this.longPolyline = require('../test/fixtures/long.json');
-  });
-
   bench('short', function () {
-    plumper(this.shortPolyline, 0.25);
+    plumper(shortPolyline, 0.25);
   });
 
   bench('long', function () {
-    plumper(this.longPolyline, 0.25);
+    plumper(longPolyline, 0.25);
   });
 
   [1000, 5000, 10000, 30000].forEach(len => {

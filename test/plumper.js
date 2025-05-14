@@ -1,6 +1,5 @@
-const plumper = require('../lib/plumper');
-
-const { describe, it } = require('node:test');
+import { describe, it } from 'node:test';
+import plumper from '../lib/plumper.js';
 
 describe('plumper', () => {
   it('should return nothing for invalid input', t => {

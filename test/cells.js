@@ -1,6 +1,5 @@
-const cells = require('../lib/cells');
-
-const { describe, it } = require('node:test');
+import { describe, it } from 'node:test';
+import cells from '../lib/cells.js';
 
 describe('cells', () => {
   it('forEachMarked should enumerate all cells that are set', t => {
