@@ -20,11 +20,11 @@ suite('plumper', () => {
   // or switch to fixed number of iterations
   // set('iterations', 500);
 
-  bench('short', function () {
+  bench('short', () => {
     plumper(shortPolyline, 0.25);
   });
 
-  bench('long', function () {
+  bench('long', () => {
     plumper(longPolyline, 0.25);
   });
 

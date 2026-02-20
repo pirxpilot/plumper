@@ -1,13 +1,5 @@
 import { describe, it } from 'node:test';
-import {
-  boxToOriginAndExtent,
-  div,
-  move,
-  offset,
-  same,
-  scale,
-  sign
-} from '../lib/math.js';
+import { boxToOriginAndExtent, div, move, offset, same, scale, sign } from '../lib/math.js';
 
 describe('div', () => {
   it('should perform integral division', t => {
