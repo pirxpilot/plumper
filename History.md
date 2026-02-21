@@ -1,4 +1,11 @@
 
+2.0.1 / 2026-02-20
+==================
+
+ * update github actions
+ * upgrade `esbuild` to 0.27.3
+ * upgrade `biome` to 2.4.4
+
 2.0.0 / 2025-05-13
 ==================
 
