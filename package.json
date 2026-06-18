@@ -20,9 +20,9 @@
   "author": "Damian Krzeminski <pirxpilot@furkot.com>",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "^2.4.4",
+    "@biomejs/biome": "2.5.0",
     "@pirxpilot/matcha": "~1",
-    "esbuild": "^0.27.3",
+    "esbuild": ">= 0.28.1 <1",
     "polyline-encoded": "^0.0.9"
   },
   "files": [

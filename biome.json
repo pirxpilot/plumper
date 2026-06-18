@@ -38,7 +38,7 @@
       "project": "recommended"
     },
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "correctness": {
         "noUndeclaredDependencies": "error",
         "noUndeclaredVariables": "error",
